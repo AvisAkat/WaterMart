@@ -57,8 +57,8 @@ class UserProfileController extends Controller
         $validationRules = [
             'name'=> ["required","max:255"],
             "email"=> ["required","email","max:255", "unique:users,email,$id"],
-            "phone"=> ["required","max_digits:9","integer"],
-            "address"=> ["required","max:225"],
+            "phone"=> ["max_digits:9","integer","nullable"],
+            "address"=> ["max:225"],
             "profile_pic"=> ["max:1024","image", "nullable"],
     
         ];

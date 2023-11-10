@@ -105,6 +105,10 @@
             @auth
 
                 <li class="nav-item">
+                    <a class="nav-link px-2" href="{{route('auth.carts.index')}}">Cart</a>
+                </li>
+
+                <li class="nav-item">
                     <button type="button" class="btn1 nav-link px-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         {{-- {{ Auth::user()->email }} --}}
                         <img src="@if(Auth::user()->userProfile->profile_pic === null) http://localhost:8000/images/user.png @else {{ Auth::user()->userProfile->getUserProfilePic()}} @endif" />

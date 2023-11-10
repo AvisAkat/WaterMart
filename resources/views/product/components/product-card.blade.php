@@ -7,8 +7,13 @@
     </div>
     <div class="card-footer d-flex justify-content-center">
         
-        <button type="button" class="btn btn-primary m-2 w-25" @if( $product->quantity_in_stock == 0) disabled @endif><i class="bi bi-cart-plus"></i></button>
-          
+
+        <form action="{{ route('auth.carts.store', ['product' => $product->id]) }}" method="post">
+            @csrf
+             <button type="submit" class="btn btn-primary m-2 w-100" @if( $product->quantity_in_stock == 0) disabled @endif><i class="bi bi-cart-plus"></i></button>   
+        </form>
+        
+        
         {{-- <a href="#" class="btn btn-primary me-2">Add To Cart</a> --}}
         @if( $product->quantity_in_stock == 0)
           <form action="{{ route('mail.notify.store', ['product' => $product->id]) }}" method="post">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
@@ -48,6 +49,11 @@ Route::prefix('/auth')->name('auth.')->group(function () {
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::post('signin', [AuthController::class, 'signinUser'])->name('signinUser');
     Route::post('logout', [AuthController::class, 'logoutUser'])->name('logout')->middleware(['auth']);
+
+    // CART
+    Route::post('carts/{product}', [CartController::class, 'store'])->name('carts.store');
+    Route::get('carts', [CartController::class, 'index'])->name('carts.index');
+    Route::delete('carts', [CartController::class, 'destroy'])->name('carts.destroy');
 
 });
  
