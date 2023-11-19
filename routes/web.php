@@ -53,7 +53,10 @@ Route::prefix('/auth')->name('auth.')->group(function () {
     // CART
     Route::post('carts/{product}', [CartController::class, 'store'])->name('carts.store');
     Route::get('carts', [CartController::class, 'index'])->name('carts.index');
-    Route::delete('carts', [CartController::class, 'destroy'])->name('carts.destroy');
+    Route::delete('carts/{cart}', [CartController::class, 'destroy'])->name('carts.destroy');
+
+    //BUYING ITEMS
+    Route::post('buy/{cart}', [CartController::class, 'buyItems'])->name('carts.buyItems');
 
 });
  
